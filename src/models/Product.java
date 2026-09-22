@@ -11,7 +11,7 @@ public abstract class Product implements IVendavel {
 
   Product(String nome, double preco, int quantidade) throws QuantidadeInvalidaException {
    if (quantidade < 0 || preco < 0) {
-      throw new QuantidadeInvalidaException("Preço ou quantidade não podem ser negativos.");
+      throw new QuantidadeInvalidaException("preço ou quantidade não podem ser negativos");
     }
       
     this.nome = nome;
@@ -25,6 +25,22 @@ public abstract class Product implements IVendavel {
 
   abstract double calcularValorTotal();
 
+  public void aplicarDesconto(double percentual) {
+    this.aplicarDesconto(percentual, this.preco);
+  }
+
+  public void aplicarDesconto(double percentual, double descontoMaximo) {
+    if(percentual <= 0) return;
+
+    double valorDesconto = this.preco*(percentual/100);
+
+    if(valorDesconto >= this.preco) {
+      valorDesconto = descontoMaximo;
+    }
+
+    this.preco -= valorDesconto;
+  }
+
   @Override 
   public void vender(int quantidadePedido) throws ProductIndisponivelException {
     if(quantidadePedido > this.quantidade) {
@@ -35,8 +51,8 @@ public abstract class Product implements IVendavel {
   }
 
   public String getDescricao() {
-    return "nome do produto:" + getNome() +
-           "valor do produto" + getPreco() +
-           "quantidade de itens: " + getQuantidade();
+    return "nome do produto: " + getNome() +
+            "valor do produto: " + getPreco() +
+            "quantidade de itens: " + getQuantidade();
   }
 }
