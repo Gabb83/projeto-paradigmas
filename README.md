@@ -1,4 +1,4 @@
-# Projeto de Avaliação
+# 📦 Projeto de Avaliação
 
 Projeto de estoque de produtos proposto na disciplina de paradigmas de linguagem de programação. O projeto consiste em um sistema de gerenciamento de estoque para avaliar o paradigma de orientação a objetos, utilizando a linguagem de programação Java.
 
@@ -28,5 +28,6 @@ Projeto de estoque de produtos proposto na disciplina de paradigmas de linguagem
 |
 ├── .gitignore
 ├── exercicio-proposto.pdf
+├── image.png
 └── README.md
 ```
